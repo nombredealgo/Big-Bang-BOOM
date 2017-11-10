@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{7DD9E57E-6B9C-3D28-74A6-77155E666F84}</ProjectGuid>
+    <ProjectGuid>{DCED2B33-DFD7-0BA9-9453-E1A1D0EA944A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -51,12 +51,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\CasillaBotonRJo.cs" />
-     <Compile Include="Assets\casillaCables.cs" />
-     <Compile Include="Assets\CasillaTornillos.cs" />
-     <Compile Include="Assets\CodigoCasillaBotones.cs" />
-     <Compile Include="Assets\CodigoDestornillador.cs" />
-     <Compile Include="Assets\NivelVariables.cs" />
+     <Compile Include="Assets\Scripts\Box.cs" />
+     <Compile Include="Assets\Scripts\CasillaBotonRJo.cs" />
+     <Compile Include="Assets\Scripts\casillaCables.cs" />
+     <Compile Include="Assets\Scripts\CasillaTornillos.cs" />
+     <Compile Include="Assets\Scripts\CodigoCasillaBotones.cs" />
+     <Compile Include="Assets\Scripts\CodigoDestornillador.cs" />
+     <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Scripts\Level.cs" />
+     <Compile Include="Assets\Scripts\LevelStructure.cs" />
+     <Compile Include="Assets\Scripts\NivelVariables.cs" />
+     <Compile Include="Assets\Scripts\Player.cs" />
+     <Compile Include="Assets\Scripts\Tutorial.cs" />
+     <Compile Include="Assets\Scripts\TutorialString.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
@@ -85,10 +92,10 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Analytics">
- <HintPath>C:/Users/mari/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@1.0.1/UnityEngine.Analytics.dll</HintPath>
+ <HintPath>C:/Users/Rebeca/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@1.0.1/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Purchasing">
- <HintPath>C:/Users/mari/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@1.0.1/UnityEngine.Purchasing.dll</HintPath>
+ <HintPath>C:/Users/Rebeca/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@1.0.1/UnityEngine.Purchasing.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
