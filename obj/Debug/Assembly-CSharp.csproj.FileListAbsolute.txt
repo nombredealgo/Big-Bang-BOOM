@@ -35,3 +35,4 @@ C:\Users\Rebeca\Documents\GitHub\Big-Bang-BOOM\Temp\bin\Debug\UnityEngine.HoloLe
 C:\Users\Rebeca\Documents\GitHub\Big-Bang-BOOM\Temp\bin\Debug\UnityEngine.SpatialTracking.xml
 C:\Users\Rebeca\Documents\GitHub\Big-Bang-BOOM\obj\Debug\Assembly-CSharp.dll
 C:\Users\Rebeca\Documents\GitHub\Big-Bang-BOOM\obj\Debug\Assembly-CSharp.pdb
+C:\Users\Rebeca\Documents\GitHub\Big-Bang-BOOM\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache

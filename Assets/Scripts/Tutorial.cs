@@ -9,6 +9,7 @@ public class Tutorial : MonoBehaviour
 {
 	public int cont;
 	public Text TextInPanel;
+	public Text TutorialTitle;
 
 	private List<String> textList = new List<String> {
 		"Bienvenid@ al tutorial de Big Bang BOOM!",
@@ -33,6 +34,11 @@ public class Tutorial : MonoBehaviour
 	}
 
 	public void Next(){
+
+		if (cont == 0) {
+			TutorialTitle.gameObject.SetActive (false);
+		}
+
 		cont++;
 		TextInPanel.text = textList[cont];
 	}
