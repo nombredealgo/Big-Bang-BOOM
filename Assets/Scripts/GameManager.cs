@@ -42,8 +42,8 @@ public class GameManager : MonoBehaviour {
 
 	public void GoToLevelMenu(){
 		if (avatarChoosed) {
-			//SceneManager.LoadScene ("Level Menu");
-			SceneManager.LoadScene("Nivel1");
+			SceneManager.LoadScene ("Level Menu");
+			//SceneManager.LoadScene("Nivel1");
 		}
 	}
 

@@ -33,6 +33,6 @@ C:\Users\Rebeca\Documents\GitHub\Big-Bang-BOOM\Temp\bin\Debug\UnityEngine.UIAuto
 C:\Users\Rebeca\Documents\GitHub\Big-Bang-BOOM\Temp\bin\Debug\UnityEngine.GoogleAudioSpatializer.xml
 C:\Users\Rebeca\Documents\GitHub\Big-Bang-BOOM\Temp\bin\Debug\UnityEngine.HoloLens.xml
 C:\Users\Rebeca\Documents\GitHub\Big-Bang-BOOM\Temp\bin\Debug\UnityEngine.SpatialTracking.xml
-C:\Users\Rebeca\Documents\GitHub\Big-Bang-BOOM\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
 C:\Users\Rebeca\Documents\GitHub\Big-Bang-BOOM\obj\Debug\Assembly-CSharp.dll
 C:\Users\Rebeca\Documents\GitHub\Big-Bang-BOOM\obj\Debug\Assembly-CSharp.pdb
+C:\Users\Rebeca\Documents\GitHub\Big-Bang-BOOM\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
