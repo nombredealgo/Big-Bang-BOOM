@@ -22,6 +22,7 @@ public class CasillaTornillos : MonoBehaviour {
 		if (variables.cursor == "Destornillador") {
 			casillaboton.gameObject.SetActive (true);
 			boton.gameObject.SetActive (false);
+			variables.cursor = "Nada";
 		}
 	}
 	// Update is called once per frame

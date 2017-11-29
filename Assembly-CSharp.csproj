@@ -51,6 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\AlicatesScript.cs" />
      <Compile Include="Assets\casillaCablesComplicada.cs" />
      <Compile Include="Assets\casillaSimonScript.cs" />
      <Compile Include="Assets\lucesScript.cs" />
@@ -66,9 +67,11 @@
      <Compile Include="Assets\Scripts\CodigoCasillaBotones.cs" />
      <Compile Include="Assets\Scripts\CodigoDestornillador.cs" />
      <Compile Include="Assets\Scripts\DestornilladorEnCaja.cs" />
-     <Compile Include="Assets\Scripts\GameManager.cs" />
-     <Compile Include="Assets\Scripts\Level.cs" />
-     <Compile Include="Assets\Scripts\LevelStructure.cs" />
+     <Compile Include="Assets\Scripts\Game Managment\CharacterMenuManager.cs" />
+     <Compile Include="Assets\Scripts\Game Managment\GameManager.cs" />
+     <Compile Include="Assets\Scripts\Game Managment\InitialMenuManager.cs" />
+     <Compile Include="Assets\Scripts\Game Managment\Level.cs" />
+     <Compile Include="Assets\Scripts\Game Managment\LevelMenuManager.cs" />
      <Compile Include="Assets\Scripts\NivelVariables.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\puzzleScript.cs" />

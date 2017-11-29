@@ -15,12 +15,23 @@ public class CodigoDestornillador : MonoBehaviour {
 
 	}
 	void OnClick(){
-		if (variables.cursor == "Nada") {
+		if (variables.cursor == "Nada") {			
 			variables.cursor = "Destornillador";
+			destornillador.image.enabled = false;
 		}
+
 	}
 	// Update is called once per frame
-	void Update () {
-		
+	void Update(){
+		if (Input.GetKeyDown(KeyCode.Mouse1)){
+			if (variables.cursor == "Destornillador"){
+				variables.cursor = "Nada";
+
+			}
+
+		}
+		if (variables.cursor == "Nada") {
+			destornillador.image.enabled = true;
+		}
 	}
 }

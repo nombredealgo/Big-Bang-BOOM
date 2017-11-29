@@ -4,7 +4,18 @@
     <Files>
       <File FileName="Assets\casillaSimonScript.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\casillaBotonesColoresCalidos.cs" Line="1" Column="1" />
-      <File FileName="Assets\casillaCablesComplicada.cs" Line="16" Column="1" />
+      <File FileName="Assets\casillaCablesComplicada.cs" Line="19" Column="4" />
+      <File FileName="Assets\Scripts\Game Managment\LevelMenuManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Game Managment\InitialMenuManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Game Managment\GameManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Game Managment\Level.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Tutorial.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\NivelVariables.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\CasillaCodigo.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\CasillaTornillos.cs" Line="23" Column="4" />
+      <File FileName="Assets\Scripts\CodigoDestornillador.cs" Line="36" Column="3" />
+      <File FileName="Assets\AlicatesScript.cs" Line="31" Column="4" />
+      <File FileName="Assets\Scripts\casillaCables.cs" Line="39" Column="18" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

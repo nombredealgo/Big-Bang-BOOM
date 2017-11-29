@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class casillaCablesComplicada : MonoBehaviour {
 
 	public Button verdadero;
+	public NivelVariables variables;
 
 	// Use this for initialization
 	void Start () {
@@ -13,7 +14,9 @@ public class casillaCablesComplicada : MonoBehaviour {
 	}
 
 	void terminado(){
-		Debug.Log ("terminado");
+		if (variables.cursor == "Alicates") {
+			Debug.Log ("terminado");
+		}
 	}
 
 }

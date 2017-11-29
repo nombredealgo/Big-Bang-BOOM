@@ -18,6 +18,7 @@ public class CasillaCodigo : MonoBehaviour {
 	public Button b8;
 	public Button b9;
 
+	public Button borrar;
 	// Use this for initialization
 	void Start () {
 		b1.GetComponent<Button>();
@@ -46,6 +47,9 @@ public class CasillaCodigo : MonoBehaviour {
 
 		b9.GetComponent<Button>();
 		b9.onClick.AddListener(PasanCosas9);
+
+		borrar.GetComponent<Button>();
+		borrar.onClick.AddListener(Borrar);
 	}
 
 
@@ -93,6 +97,9 @@ public class CasillaCodigo : MonoBehaviour {
 		if (textview.text.Length != 4) {
 			textview.text = textview.text + "9";
 		}
+	}
+	void Borrar(){
+		textview.text = "";	
 	}
 	// Update is called once per frame
 	void Update () {

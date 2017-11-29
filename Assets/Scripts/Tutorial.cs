@@ -8,8 +8,14 @@ using System.Reflection;
 public class Tutorial : MonoBehaviour
 {
 	public int cont;
-	public Text TextInPanel;
-	public Text TutorialTitle;
+	public Text TutorialText;
+	public GameObject CoverPage;
+	public GameObject TutorialTools;
+	public Image AvatarIcon;
+	public Button LevelButton;
+	public Image TargetIcon;
+
+	public GameObject TutorialCanvas;
 
 	private List<String> textList = new List<String> {
 		"Bienvenid@ al tutorial de Big Bang BOOM!",
@@ -24,23 +30,43 @@ public class Tutorial : MonoBehaviour
 		"A la derecha tienes la caja de herramientas.",
 		"Cada herramienta sirve para una función determinada.",
 		"Haciendo click sobre una herramienta la seleccionarás.",
-		"Continuemos."};
+		"Y ahora te toca experimentar :D"};
 	
 	//poner circulo
 
+	public void StartTutorial(){
+		CoverPage.SetActive (false);
+		TutorialTools.SetActive (true);
+		AvatarIcon.gameObject.SetActive (true);
+		LevelButton.gameObject.SetActive (true);
+	}
+
 	void Start(){
 		cont = 0;
-		TextInPanel.text = textList[cont];
-	}
+		TutorialText.text = textList[cont];	}
 
 	public void Next(){
 
-		if (cont == 0) {
-			TutorialTitle.gameObject.SetActive (false);
+		if (cont < textList.Count - 1) {
+			cont++;
+			TutorialText.text = textList [cont];
+
+			if (cont == 2) {
+				TargetIcon.gameObject.SetActive (true);
+				TargetIcon.transform.position = LevelButton.transform.position;
+			}
+
+			if (cont == 3) {
+				TargetIcon.transform.position = AvatarIcon.transform.position;
+			}
+
+			if (cont == 4) {
+				TargetIcon.gameObject.SetActive (false);
+			}
+		} else {
+			TutorialCanvas.SetActive (false);
 		}
 
-		cont++;
-		TextInPanel.text = textList[cont];
 	}
 }
 
