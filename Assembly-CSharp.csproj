@@ -67,16 +67,21 @@
      <Compile Include="Assets\Scripts\CodigoCasillaBotones.cs" />
      <Compile Include="Assets\Scripts\CodigoDestornillador.cs" />
      <Compile Include="Assets\Scripts\DestornilladorEnCaja.cs" />
-     <Compile Include="Assets\Scripts\Game Managment\CharacterMenuManager.cs" />
      <Compile Include="Assets\Scripts\Game Managment\GameManager.cs" />
-     <Compile Include="Assets\Scripts\Game Managment\InitialMenuManager.cs" />
      <Compile Include="Assets\Scripts\Game Managment\Level.cs" />
-     <Compile Include="Assets\Scripts\Game Managment\LevelMenuManager.cs" />
+     <Compile Include="Assets\Scripts\Game Managment\MenuManagment.cs" />
+     <Compile Include="Assets\Scripts\Level 0\CasillaBotonRJo.cs" />
+     <Compile Include="Assets\Scripts\Level 0\casillaCables.cs" />
+     <Compile Include="Assets\Scripts\Level 0\CasillaTornillos.cs" />
+     <Compile Include="Assets\Scripts\Level 0\CodigoCasillaBotones.cs" />
+     <Compile Include="Assets\Scripts\Level 0\Tutorial.cs" />
+     <Compile Include="Assets\Scripts\Level 1\TrollLevel.cs" />
      <Compile Include="Assets\Scripts\NivelVariables.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\puzzleScript.cs" />
+     <Compile Include="Assets\Scripts\Tools Scripts\CodigoDestornillador.cs" />
+     <Compile Include="Assets\Scripts\Tools Scripts\DestornilladorEnCaja.cs" />
      <Compile Include="Assets\Scripts\tupplaBotones.cs" />
-     <Compile Include="Assets\Scripts\Tutorial.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
@@ -105,10 +110,10 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Analytics">
- <HintPath>C:/Users/mari/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@1.0.1/UnityEngine.Analytics.dll</HintPath>
+ <HintPath>C:/Users/Rebeca/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@1.0.1/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Purchasing">
- <HintPath>C:/Users/mari/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@1.0.1/UnityEngine.Purchasing.dll</HintPath>
+ <HintPath>C:/Users/Rebeca/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@1.0.1/UnityEngine.Purchasing.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

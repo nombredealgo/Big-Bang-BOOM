@@ -10,25 +10,19 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public class GameManager : MonoBehaviour {
 
-	private String avatarRute;
 	public static GameManager gameManager;
 
-    private bool avatarChoosed;
-	public Sprite avatarIcon;
-//	private Button lastButton;
-//	public GameObject avatar;
+	private String avatarRute;
+	private String keepInRute;
 	public string avatarName;
+	public string keepInLevel;
 
-	public void SetAvatarName(string name){
-		gameManager.SaveAvatar (name);
-		avatarName = name;
-	}
-	public string GetAvatarName(){
-		return avatarName;
-	}
+	public GameObject EndingCanvas;
 
 	void Awake(){
-		avatarRute = Application.persistentDataPath + "/jorjor.txt";
+		avatarRute = Application.persistentDataPath + "/playerAvatar.txt";
+		keepInRute = Application.persistentDataPath + "/stayInLevelMenu.txt";
+
 
 		if (gameManager == null) {
 			gameManager = this;
@@ -37,34 +31,40 @@ public class GameManager : MonoBehaviour {
 		} else if (gameManager != this){
 			Destroy (gameObject);
 		}
-		avatarChoosed = false;
-
 	}
 
 	void Start () {
-		//ChargeAvatar ();
-
 	}
 
 	void Update () {
 	}
 
-	public bool IsAvatarChoosed
-	{
-		get{ return avatarChoosed;}
-		set{ avatarChoosed = value; }
+	public void SetGameState(string name){
+		gameManager.SaveGameState (name);
+		keepInLevel = name;
 	}
 
+	public string GetGameState(){
+		gameManager.ChargeGameState ();
+		return keepInLevel;
+	}
 
-	public void SaveAvatar(string name){
+	public void SetAvatarName(string name){
+		gameManager.SaveAvatar (name);
+		avatarName = name;
+	}
+
+	public string GetAvatarName(){
+		gameManager.ChargeAvatar ();
+		return avatarName;
+	}
+
 		
+	public void SaveAvatar(string name){
 		BinaryFormatter bf = new BinaryFormatter ();
 		FileStream file = File.Create (avatarRute);
-
 		KeepData av = new KeepData (name);
-
 		bf.Serialize (file, av);
-
 		file.Close ();
 	}
 
@@ -72,23 +72,62 @@ public class GameManager : MonoBehaviour {
 		if (File.Exists (avatarRute)) {
 			BinaryFormatter bf = new BinaryFormatter ();
 			FileStream file = File.Open (avatarRute, FileMode.Open);
-
 			KeepData av = (KeepData)bf.Deserialize (file);
-			Debug.Log (av.avatar);
-
-
-
+			avatarName = av.avatar;
 			file.Close ();
 		} else {
-			avatarIcon = null;
+			avatarName = "";
+		}
+	}
+
+	public void SaveGameState(string name){
+		BinaryFormatter bf = new BinaryFormatter ();
+		FileStream file = File.Create (keepInRute);
+		KeepInLevelMenu stay = new KeepInLevelMenu (name);
+		bf.Serialize (file, stay);
+		file.Close ();
+	}
+
+	public void ChargeGameState(){
+		if (File.Exists (keepInRute)) {
+			BinaryFormatter bf = new BinaryFormatter ();
+			FileStream file = File.Open (keepInRute, FileMode.Open);
+			KeepInLevelMenu stay = (KeepInLevelMenu)bf.Deserialize (file);
+			keepInLevel = stay.keepIn;
+			file.Close ();
+		} else {
+			keepInLevel = "";
+		}
+	}
+
+	IEnumerator LitlePause(){
+		yield return new WaitForSeconds(3);
+
+		SetGameState ("Stay");
+		SceneManager.LoadScene ("Initial Menu");
+	}
+
+	public void EndOfLevel(bool passed){
+		GameObject canvas = Instantiate (EndingCanvas);
+		canvas.SetActive (true);
+
+		if (passed) {
+			canvas.GetComponentInChildren<Text> ().text = "You win!";
+		} else {
+			canvas.GetComponentInChildren<Text> ().text = "You lose!";
 		}
 
+		StartCoroutine ("LitlePause");
 	}
+}
 
-	public Sprite GetIcon(){
-		return avatarIcon;
+[Serializable]
+public class KeepInLevelMenu{
+	public string keepIn;
+
+	public KeepInLevelMenu(string keepIn){
+		this.keepIn = keepIn;
 	}
-		
 }
 
 [Serializable]

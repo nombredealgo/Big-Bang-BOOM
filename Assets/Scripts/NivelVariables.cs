@@ -8,8 +8,6 @@ public class NivelVariables : MonoBehaviour {
 	private GameManager gameManger;
 	public Image avatar;
 
-
-
 	public Texture2D Dest;
 	public Texture2D Alic;
 
@@ -26,11 +24,12 @@ public class NivelVariables : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
-		delante.text = contadorDelantero + ":";
-		detras.text = "" + contadorTrasero;
+//
+//		delante.text = contadorDelantero + ":";
+//		detras.text = "" + contadorTrasero;
 		gameManger = GameObject.Find ("Game Manager").GetComponent<GameManager> ();
 		gameManger.ChargeAvatar ();
+
 		string name = gameManger.GetAvatarName();
 
 		switch (name) {
@@ -59,8 +58,8 @@ public class NivelVariables : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		CodigoContador ();
-		CodigoCursor ();			
+//		CodigoContador ();
+//		CodigoCursor ();			
 	}
 
 	void CodigoCursor(){
