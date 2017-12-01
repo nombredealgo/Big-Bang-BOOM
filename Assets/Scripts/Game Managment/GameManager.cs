@@ -13,57 +13,91 @@ public class GameManager : MonoBehaviour {
 	public static GameManager gameManager;
 
 	private String avatarRute;
-	private String keepInRute;
+	private String stayAtLevelMenu;
+	private String levelsInfoRute;
+
+	private string returnToLevelMenu;
 	public string avatarName;
-	public string keepInLevel;
+	public int[] passedLevels;
 
 	public GameObject EndingCanvas;
 
 	void Awake(){
+
+		//Establece las rutas de donde se guardan los distintos ratos.
 		avatarRute = Application.persistentDataPath + "/playerAvatar.txt";
-		keepInRute = Application.persistentDataPath + "/stayInLevelMenu.txt";
+		stayAtLevelMenu = Application.persistentDataPath + "/stayAtLevelMenu.txt";
+		levelsInfoRute = Application.persistentDataPath + "/passedLevels.text.bytes";
 
-
+		//Mantiene que haya solo un GameManager por escena. Si ya existe uno, elimina
+		//el nuevo.
 		if (gameManager == null) {
 			gameManager = this;
 			DontDestroyOnLoad (transform.gameObject);
+
+			AvatarName = "";
+			ReturnToLevelMenu = "";
+
+			ChargeLevelsInfo ();
+			passedLevels = new int[0];
+			SaveLevelInformation ();
 
 		} else if (gameManager != this){
 			Destroy (gameObject);
 		}
 	}
 
-	void Start () {
+	//Para la información referente al estado del juego 
+	//(volver al menú de niveles dentro de la escena inicial)
+	//después de finalizar un nivel, por ejemplo.
+	public string ReturnToLevelMenu{
+		set{ 
+			SaveGameState (value);
+			returnToLevelMenu = value;
+		}
+		get {
+			ChargeGameState ();
+			return returnToLevelMenu; }
 	}
 
-	void Update () {
+	public void SaveGameState(string name){
+		BinaryFormatter bf = new BinaryFormatter ();
+		FileStream file = File.Create (stayAtLevelMenu);
+		GoToLevelMenu stay = new GoToLevelMenu (name);
+		bf.Serialize (file, stay);
+		file.Close ();
 	}
 
-	public void SetGameState(string name){
-		gameManager.SaveGameState (name);
-		keepInLevel = name;
+	public void ChargeGameState(){
+		if (File.Exists (stayAtLevelMenu)) {
+			BinaryFormatter bf = new BinaryFormatter ();
+			FileStream file = File.Open (stayAtLevelMenu, FileMode.Open);
+			GoToLevelMenu stay = (GoToLevelMenu) bf.Deserialize (file);
+			returnToLevelMenu = stay.stay;
+			file.Close ();
+		} else {
+			returnToLevelMenu = "";
+		}
 	}
-
-	public string GetGameState(){
-		gameManager.ChargeGameState ();
-		return keepInLevel;
-	}
-
-	public void SetAvatarName(string name){
-		gameManager.SaveAvatar (name);
-		avatarName = name;
-	}
-
-	public string GetAvatarName(){
-		gameManager.ChargeAvatar ();
-		return avatarName;
-	}
-
 		
+
+	//Para la información referente al avatar escogido
+	//por el jugador en el menú de avatares (escena inicial)
+	public string AvatarName{
+		set{
+			SaveAvatar (value);
+			avatarName = value; 
+		}
+		get{
+			ChargeAvatar ();
+			return avatarName;
+		}
+	}
+
 	public void SaveAvatar(string name){
 		BinaryFormatter bf = new BinaryFormatter ();
 		FileStream file = File.Create (avatarRute);
-		KeepData av = new KeepData (name);
+		KeepAvatar av = new KeepAvatar (name);
 		bf.Serialize (file, av);
 		file.Close ();
 	}
@@ -72,70 +106,110 @@ public class GameManager : MonoBehaviour {
 		if (File.Exists (avatarRute)) {
 			BinaryFormatter bf = new BinaryFormatter ();
 			FileStream file = File.Open (avatarRute, FileMode.Open);
-			KeepData av = (KeepData)bf.Deserialize (file);
+			KeepAvatar av = (KeepAvatar)bf.Deserialize (file);
 			avatarName = av.avatar;
 			file.Close ();
 		} else {
 			avatarName = "";
 		}
 	}
+		
 
-	public void SaveGameState(string name){
+	//Para la información sobre el estado actuald de los niveles	
+	//accesible-superado-bloqueado.
+	public void SetPassedLevels(int value){
+		ChargeLevelsInfo ();
+
+		//Ya se ha superado el nivel?
+		bool alreadyPassed = false;
+		for (int i = 0; i < passedLevels.Length; i++) {
+			if (value == passedLevels [i]) {
+				alreadyPassed = true;
+				break;
+			}
+		}
+
+		if (!alreadyPassed) {
+
+			int[] aux = new int[passedLevels.Length + 1];
+			for (int i = 0; i < passedLevels.Length; i++) {
+				aux [i] = passedLevels [i];
+			}
+			aux [passedLevels.Length] = value;
+			passedLevels = aux;
+		}
+		SaveLevelInformation ();
+
+	}
+
+	public int[] GetPassedLevels(){
+		ChargeLevelsInfo ();
+		return passedLevels;
+	}
+		
+	public void SaveLevelInformation(){
 		BinaryFormatter bf = new BinaryFormatter ();
-		FileStream file = File.Create (keepInRute);
-		KeepInLevelMenu stay = new KeepInLevelMenu (name);
-		bf.Serialize (file, stay);
+		FileStream file = File.Create (levelsInfoRute);
+		LevelInformation info = new LevelInformation (passedLevels);
+		bf.Serialize (file, info);
 		file.Close ();
 	}
 
-	public void ChargeGameState(){
-		if (File.Exists (keepInRute)) {
+	public void ChargeLevelsInfo(){
+		if (File.Exists (levelsInfoRute)) {
 			BinaryFormatter bf = new BinaryFormatter ();
-			FileStream file = File.Open (keepInRute, FileMode.Open);
-			KeepInLevelMenu stay = (KeepInLevelMenu)bf.Deserialize (file);
-			keepInLevel = stay.keepIn;
+			FileStream file = File.Open (levelsInfoRute, FileMode.Open);
+			LevelInformation info = (LevelInformation)bf.Deserialize (file);
+			passedLevels = info.passedLevels;
 			file.Close ();
 		} else {
-			keepInLevel = "";
+			passedLevels = new int[0];
 		}
 	}
 
 	IEnumerator LitlePause(){
 		yield return new WaitForSeconds(3);
 
-		SetGameState ("Stay");
+		ReturnToLevelMenu = "Stay";
+
 		SceneManager.LoadScene ("Initial Menu");
 	}
 
-	public void EndOfLevel(bool passed){
+	public void EndOfLevel(bool passed, int level){
 		GameObject canvas = Instantiate (EndingCanvas);
 		canvas.SetActive (true);
 
 		if (passed) {
 			canvas.GetComponentInChildren<Text> ().text = "You win!";
+			SetPassedLevels(level);
 		} else {
 			canvas.GetComponentInChildren<Text> ().text = "You lose!";
 		}
-
+			
 		StartCoroutine ("LitlePause");
 	}
 }
 
 [Serializable]
-public class KeepInLevelMenu{
-	public string keepIn;
-
-	public KeepInLevelMenu(string keepIn){
-		this.keepIn = keepIn;
+public class GoToLevelMenu{
+	public string stay;
+	public GoToLevelMenu(string stay){
+		this.stay = stay;
 	}
 }
 
 [Serializable]
-public class KeepData{
-
+public class KeepAvatar{
 	public string avatar;
-
-	public KeepData(string avatar){
+	public KeepAvatar(string avatar){
 		this.avatar = avatar;
+	}
+}
+
+[Serializable]
+public class LevelInformation{
+	public int[] passedLevels;
+	public LevelInformation(int[] passedLevels){
+		this.passedLevels = passedLevels;
 	}
 }

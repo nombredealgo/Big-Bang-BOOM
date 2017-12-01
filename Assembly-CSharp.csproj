@@ -59,14 +59,8 @@
      <Compile Include="Assets\Scripts\BotonInput.cs" />
      <Compile Include="Assets\Scripts\Box.cs" />
      <Compile Include="Assets\Scripts\casillaBotonesColoresCalidos.cs" />
-     <Compile Include="Assets\Scripts\CasillaBotonRJo.cs" />
-     <Compile Include="Assets\Scripts\casillaCables.cs" />
      <Compile Include="Assets\Scripts\CasillaCodigo.cs" />
-     <Compile Include="Assets\Scripts\CasillaTornillos.cs" />
      <Compile Include="Assets\Scripts\CodigoAcertijo.cs" />
-     <Compile Include="Assets\Scripts\CodigoCasillaBotones.cs" />
-     <Compile Include="Assets\Scripts\CodigoDestornillador.cs" />
-     <Compile Include="Assets\Scripts\DestornilladorEnCaja.cs" />
      <Compile Include="Assets\Scripts\Game Managment\GameManager.cs" />
      <Compile Include="Assets\Scripts\Game Managment\Level.cs" />
      <Compile Include="Assets\Scripts\Game Managment\MenuManagment.cs" />
@@ -80,8 +74,12 @@
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\puzzleScript.cs" />
      <Compile Include="Assets\Scripts\Tools Scripts\CodigoDestornillador.cs" />
+     <Compile Include="Assets\Scripts\Tools Scripts\CodigoMartillo.cs" />
      <Compile Include="Assets\Scripts\Tools Scripts\DestornilladorEnCaja.cs" />
+     <Compile Include="Assets\Scripts\Tools Scripts\MartilloEnCaja.cs" />
      <Compile Include="Assets\Scripts\tupplaBotones.cs" />
+     <None Include="Assets\playerAvatar.txt" />
+     <None Include="Assets\stayAtLevelMenu.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

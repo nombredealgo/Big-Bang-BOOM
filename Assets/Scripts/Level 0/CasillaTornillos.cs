@@ -10,9 +10,7 @@ public class CasillaTornillos : MonoBehaviour {
 	public GameObject casillaboton;
 	public Button boton;
 
-	// Use this for initialization
 	void Start () {
-
 		boton.GetComponent<Button>();
 		boton.onClick.AddListener(OnClick);
 		casillaboton.gameObject.SetActive (false);
@@ -24,9 +22,5 @@ public class CasillaTornillos : MonoBehaviour {
 			boton.gameObject.SetActive (false);
 			variables.cursor = "Nada";
 		}
-	}
-	// Update is called once per frame
-	void Update () {
-		
 	}
 }

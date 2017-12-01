@@ -6,28 +6,31 @@ using UnityEngine.UI;
 
 public class TrollLevel : MonoBehaviour {
 
+	private GameManager gameManager;
 	public NivelVariables variables;
-	public Button boton;
-
 	public List<Button> openedBoxes;
+	public Button BotonMartillo;
 
-	// Use this for initialization
 	void Start () {
-
-		boton.GetComponent<Button>();
-		boton.onClick.AddListener(OnClick);
-
+		gameManager = GameObject.Find ("Game Manager").GetComponent<GameManager> ();
 	}
 
-	void OnClick(){
-		//if (variables.cursor == "Martillo") && 
-		if (variables.cursor == "Destornillador") {
-			boton.gameObject.SetActive (false);
+	public void BreakBomb(){
+		if (variables.cursor == "Martillo" && openedBoxes.Count == 0) {
+			Debug.Log ("entro");
 			variables.cursor = "Nada";
+			gameManager.EndOfLevel (true, 1);
 		}
 	}
-	// Update is called once per frame
-	void Update () {
 
+	public void AddOpened(Button b){
+		if (variables.cursor == "Destornillador") {
+			openedBoxes.Remove (b);
+			Debug.Log (openedBoxes.Count);
+		}
+
+		if (openedBoxes.Count == 0) {
+			BotonMartillo.gameObject.SetActive (true);
+		}
 	}
 }

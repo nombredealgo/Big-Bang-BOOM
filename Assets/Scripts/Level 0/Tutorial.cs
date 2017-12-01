@@ -14,7 +14,6 @@ public class Tutorial : MonoBehaviour
 	public Image AvatarIcon;
 	public Button LevelButton;
 	public Image TargetIcon;
-
 	public GameObject TutorialCanvas;
 
 	private List<String> textList = new List<String> {
@@ -32,8 +31,6 @@ public class Tutorial : MonoBehaviour
 		"Haciendo click sobre una herramienta la seleccionarás.",
 		"Y ahora te toca experimentar :D"};
 	
-	//poner circulo
-
 	public void StartTutorial(){
 		CoverPage.SetActive (false);
 		TutorialTools.SetActive (true);
@@ -43,7 +40,8 @@ public class Tutorial : MonoBehaviour
 
 	void Start(){
 		cont = 0;
-		TutorialText.text = textList[cont];	}
+		TutorialText.text = textList[cont];	
+	}
 
 	public void Next(){
 

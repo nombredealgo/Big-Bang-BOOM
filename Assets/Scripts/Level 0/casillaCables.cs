@@ -6,15 +6,12 @@ using UnityEngine.UI;
 public class casillaCables : MonoBehaviour {
 
 	GameManager gameManager;
-
 	public Button cable1;
 	public Button cable2;
 	public Button cable3;
-
 	bool terminado = false;
-	// Use this for initialization
-	void Start () {
 
+	void Start () {
 		gameManager = GameObject.Find ("Game Manager").GetComponent<GameManager> ();
 		
 		cable1.GetComponent<Button>();
@@ -48,12 +45,9 @@ public class casillaCables : MonoBehaviour {
 			if (id == 3) {
 				Debug.Log ("Cortado cable turquesamagico");
 				terminado = true;
-				gameManager.EndOfLevel (true);
+
+				gameManager.EndOfLevel(true, 0);
 			}
 		}
-	}
-	// Update is called once per frame
-	void Update () {
-
 	}
 }

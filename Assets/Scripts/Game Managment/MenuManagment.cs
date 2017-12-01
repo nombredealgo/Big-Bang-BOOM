@@ -27,6 +27,7 @@ public class MenuManagment : MonoBehaviour {
 	public Button previousPage;
 	private Button currentButton;
 	private Button lastButton;
+	private string[] passedLevels;
 
 	public void ReturnToMenu(){
 		if (AvatarCanvas.activeSelf)
@@ -35,21 +36,20 @@ public class MenuManagment : MonoBehaviour {
 		if (LevelCanvas.activeSelf)
 			LevelCanvas.SetActive (false);
 
-//		gameManager.SetAvatarName ("");
-//		gameManager.ChargeAvatar ();
 		MainCanvas.SetActive (true);
 	}
 
 	void Start(){
 		gameManager = GameObject.Find ("Game Manager").GetComponent<GameManager> ();
-		if (gameManager.GetGameState ().Equals ("Stay")) {
+
+		if (gameManager.ReturnToLevelMenu.Equals ("Stay")) {
 			AvatarCanvas.SetActive (false);
 			LevelCanvas.SetActive (true);
-
-			BuildLevelScene ();
-			gameManager.SetGameState ("");
+	
+			gameManager.ReturnToLevelMenu = "";
 		}
 
+		BuildLevelScene ();
 	}
 
 	//MAIN MENU
@@ -74,7 +74,7 @@ public class MenuManagment : MonoBehaviour {
 		
 	public void ChooseAvatar(Button button){
 		lastButton = button;
-		gameManager.SetAvatarName (button.name);
+		gameManager.AvatarName = button.name;
 	}
 
 	//LEVEL MENU
@@ -92,17 +92,12 @@ public class MenuManagment : MonoBehaviour {
 		for (int i = 0; i < 6; i++) {
 			buttonStructure.Add (LevelGridPanel.transform.GetChild (i).gameObject);
 			buttonStructure [i].GetComponent<Image> ().sprite = levelStructure [i].GetLevelAvatar ();
-
-			if (getButtonColor (levelStructure [i]).Equals (Color.grey)) {
-				buttonStructure [i].GetComponent<Button> ().interactable = false;
-			}
-
 			buttonStructure [i].GetComponentInChildren<Text> ().text = "Level " + levelStructure [i].GetNumber ();
 		}
-
+				
 		levelStructure [0].SetAviable (true); //first level is always aviable
 		buttonStructure [0].GetComponent<Button>().interactable = true;
-		buttonStructure [0].GetComponent<Image> ().color = Color.yellow;
+		buttonStructure [0].GetComponent<Image> ().color = Color.white;
 
 		currentPage = 1;
 		totalPages = 3;
@@ -112,12 +107,9 @@ public class MenuManagment : MonoBehaviour {
 
 		currentButton = null;
 		lastButton = null;
-	}
 
-//	public void ChangeToPassedLevel(Level level){
-//		level.SetOvercomed (true);
-//		levelStructure [level.GetNumber () + 1].SetAviable (true);
-//	}
+		ActualizePage ();
+	}
 
 	public void PreviousPage(){
 		if (currentPage != 1) {
@@ -146,10 +138,24 @@ public class MenuManagment : MonoBehaviour {
 	}
 		
 	private void ActualizePage(){
+		//actualizando pag
 		for (int i = 0; i < 6; i++) {
 			buttonStructure [i].GetComponent<Button> ().interactable = true;
 		}
+			
+		//Determinar qué niveles están disponibles, bloqueados o superados
+		for (int i = 0; i < gameManager.GetPassedLevels().Length; i++) {
+			levelStructure [i].SetAviable (true);
+			levelStructure [i].SetOvercomed (true);
+		}
 
+		levelStructure [gameManager.GetPassedLevels().Length].SetAviable (true);
+
+		for (int i = gameManager.GetPassedLevels().Length + 1; i < levelStructure.Count; i++) {
+			levelStructure [i].SetAviable (false);
+		}
+
+		//Construir los botones de la página
 		for (int i = 6 * (currentPage - 1), j = 0; i < 6 * (currentPage - 1) + 6; i++, j++) {
 			buttonStructure [j].GetComponent<Image> ().sprite = levelStructure [i].GetLevelAvatar ();
 			buttonStructure [j].GetComponent<Image> ().color = getButtonColor (levelStructure [i]);
@@ -161,15 +167,16 @@ public class MenuManagment : MonoBehaviour {
 			buttonStructure [j].GetComponentInChildren<Text> ().text = "Level " + levelStructure [i].GetNumber ();
 		}
 
+		//Página actual
 		pageLabel.text = currentPage + "/" + totalPages;
 	}
 		
 	private Color getButtonColor(Level level){
 		if (level.GetAviable ()) {
 			if (level.GetOvercomed ())
-				return Color.white;
-			else
 				return Color.yellow;
+			else
+				return Color.white;
 		} else
 			return Color.grey;
 	}

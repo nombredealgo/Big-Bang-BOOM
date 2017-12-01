@@ -18,18 +18,14 @@ public class CodigoCasillaBotones : MonoBehaviour {
 	string pulsado1 = null;
 	string pulsado2 = null;
 	int idpulsado1 = 0;
-
 	string primero = null;
 	string segundo = null;
-
 	bool terminado = false;
-
 	int contador;
 
-	// Use this for initialization
+	public GameObject HintPanel;
+
 	void Start () {
-
-
 		pulsado1 = null;
 		pulsado2 = null;
 		contador = 0;
@@ -53,7 +49,6 @@ public class CodigoCasillaBotones : MonoBehaviour {
 		bton6.onClick.AddListener(PasanCosas6);
 
 		casillaCables.gameObject.SetActive (false);
-
 	}
 
 	void PasanCosas1(){
@@ -74,8 +69,7 @@ public class CodigoCasillaBotones : MonoBehaviour {
 	void PasanCosas6(){
 		magia (6);
 	}
-
-
+		
 	void magia(int id){
 		
 		if (terminado == false) { // si no se han pulsado bien todas las parejas el juego sigue
@@ -149,12 +143,14 @@ public class CodigoCasillaBotones : MonoBehaviour {
 
 		}
 	}
-	// Update is called once per frame
+
 	void Update () {
 		if (contador >= 3) {
 			terminado = true;
 			casillaCerrada.gameObject.SetActive (false);
 			casillaCables.gameObject.SetActive (true);
+
+			HintPanel.gameObject.SetActive (false);
 		}
 	}
 }

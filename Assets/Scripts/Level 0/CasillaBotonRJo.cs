@@ -8,10 +8,9 @@ public class CasillaBotonRJo : MonoBehaviour {
 	public GameObject casillaCerrada;
 	public Button botonRojo;
 	public GameObject casillaBotoncitos;
+	public GameObject HintPanel;
 
-	// Use this for initialization
 	void Start () {
-
 		botonRojo.GetComponent<Button>();
 		botonRojo.onClick.AddListener(OnClick);
 		casillaBotoncitos.gameObject.SetActive (false);
@@ -22,9 +21,7 @@ public class CasillaBotonRJo : MonoBehaviour {
 		casillaBotoncitos.gameObject.SetActive (true);
 		botonRojo.GetComponent<Button> ().interactable = false;
 
-	}
-	// Update is called once per frame
-	void Update () {
-
+		HintPanel.gameObject.SetActive (true);
+		HintPanel.GetComponentInChildren<Text> ().text = "Dejame darte una pista... esto va de letras, no de colores. ¡Adelate!";
 	}
 }

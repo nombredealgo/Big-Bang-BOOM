@@ -22,7 +22,7 @@ public class Level	{
 	public bool GetOvercomed(){ return overcomed; }
 	public void SetOvercomed(bool value){ overcomed = true; }
 	public bool GetAviable(){ return aviable; }
-	public void SetAviable(bool value){ aviable = true; }
+	public void SetAviable(bool value){ aviable = value; }
 	public Sprite GetLevelAvatar(){ return levelAvatar; }
 }
 

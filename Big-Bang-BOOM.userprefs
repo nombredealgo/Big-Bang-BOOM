@@ -1,11 +1,13 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Level 1\TrollLevel.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Game Managment\GameManager.cs">
     <Files>
-      <File FileName="Assets\Scripts\Game Managment\MenuManagment.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Game Managment\GameManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Level 1\TrollLevel.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Tools Scripts\CodigoDestornillador.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\NivelVariables.cs" Line="13" Column="2" />
+      <File FileName="Assets\Scripts\Level 0\Tutorial.cs" Line="17" Column="34" />
+      <File FileName="Assets\Scripts\Game Managment\MenuManagment.cs" Line="154" Column="52" />
+      <File FileName="Assets\Scripts\Game Managment\GameManager.cs" Line="43" Column="28" />
+      <File FileName="Assets\Scripts\Level 0\CasillaBotonRJo.cs" Line="23" Column="3" />
+      <File FileName="Assets\Scripts\Level 0\CodigoCasillaBotones.cs" Line="26" Column="30" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

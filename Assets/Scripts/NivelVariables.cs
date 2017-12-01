@@ -10,6 +10,7 @@ public class NivelVariables : MonoBehaviour {
 
 	public Texture2D Dest;
 	public Texture2D Alic;
+	public Texture2D Mart;
 
 	public Text delante;
 	public Text detras;
@@ -24,13 +25,13 @@ public class NivelVariables : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-//
 //		delante.text = contadorDelantero + ":";
 //		detras.text = "" + contadorTrasero;
+
 		gameManger = GameObject.Find ("Game Manager").GetComponent<GameManager> ();
 		gameManger.ChargeAvatar ();
 
-		string name = gameManger.GetAvatarName();
+		string name = gameManger.AvatarName;
 
 		switch (name) {
 		case "Avatar 01 Button":
@@ -64,17 +65,18 @@ public class NivelVariables : MonoBehaviour {
 
 	void CodigoCursor(){
 		if (cursor == "Nada") {
-			
 			Cursor.SetCursor(null,new Vector2(180,200),CursorMode.Auto);
-		} else {
+		} 
+		else {
 			//Cursor.visible = false;
 			if (cursor == "Destornillador") {
-				
 				Cursor.SetCursor(Dest,new Vector2(16,20),CursorMode.ForceSoftware);
 			}
 			if (cursor == "Alicates") {
-
 				Cursor.SetCursor(Alic,new Vector2(16,20),CursorMode.ForceSoftware);
+			}
+			if (cursor == "Martillo") {
+				Cursor.SetCursor (Mart, new Vector2 (16, 20), CursorMode.ForceSoftware);
 			}
 
 		}
