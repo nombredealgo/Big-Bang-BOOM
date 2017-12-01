@@ -29,6 +29,7 @@ public class Tutorial : MonoBehaviour
 		"A la derecha tienes la caja de herramientas.",
 		"Cada herramienta sirve para una función determinada.",
 		"Haciendo click sobre una herramienta la seleccionarás.",
+		"Haciendo click derecho dejas la herramienta.",
 		"Y ahora te toca experimentar :D"};
 	
 	public void StartTutorial(){

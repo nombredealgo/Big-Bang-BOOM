@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class casillaCablesComplicada : MonoBehaviour {
 
+	GameManager gameManager;
+
 	public Button verdadero;
 	public NivelVariables variables;
 
@@ -15,7 +17,7 @@ public class casillaCablesComplicada : MonoBehaviour {
 
 	void terminado(){
 		if (variables.cursor == "Alicates") {
-			Debug.Log ("terminado");
+			gameManager.EndOfLevel (true, 2);
 		}
 	}
 

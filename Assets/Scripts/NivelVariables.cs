@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class NivelVariables : MonoBehaviour {
 
 	private GameManager gameManger;
 	public Image avatar;
+
 
 	public Texture2D Dest;
 	public Texture2D Alic;
@@ -69,7 +71,7 @@ public class NivelVariables : MonoBehaviour {
 			Cursor.SetCursor(null,new Vector2(180,200),CursorMode.Auto);
 		} 
 		else {
-			Cursor.visible = false;
+			
 			if (cursor == "Destornillador") {
 				Cursor.SetCursor(Dest,new Vector2(16,20),CursorMode.ForceSoftware);
 			}
@@ -90,10 +92,14 @@ public class NivelVariables : MonoBehaviour {
 		if (contadorTrasero >= 0){
 			contadorTrasero -= Time.deltaTime;
 		}
-		if (contadorTrasero == 0) {
-			if (contadorDelantero != 0) {
+		if ((int)contadorTrasero == 0) {
+			if ((int)contadorDelantero != 0) {
 				contadorDelantero--;
 				contadorTrasero = 59;
+			} else {
+				if (SceneManager.GetActiveScene ().name != "Level 0") {
+					gameManger.EndOfLevel (false, -1);
+				}
 			}
 		}
 		if (contadorDelantero < 10) {
