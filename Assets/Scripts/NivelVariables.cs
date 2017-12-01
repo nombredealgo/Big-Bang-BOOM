@@ -11,6 +11,7 @@ public class NivelVariables : MonoBehaviour {
 	public Texture2D Dest;
 	public Texture2D Alic;
 	public Texture2D Mart;
+	public Texture2D Flecha;
 
 	public Text delante;
 	public Text detras;
@@ -25,8 +26,8 @@ public class NivelVariables : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-//		delante.text = contadorDelantero + ":";
-//		detras.text = "" + contadorTrasero;
+		delante.text = contadorDelantero + ":";
+		detras.text = "" + contadorTrasero;
 
 		gameManger = GameObject.Find ("Game Manager").GetComponent<GameManager> ();
 		gameManger.ChargeAvatar ();
@@ -59,8 +60,8 @@ public class NivelVariables : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-//		CodigoContador ();
-//		CodigoCursor ();			
+		CodigoContador ();
+    	CodigoCursor ();			
 	}
 
 	void CodigoCursor(){
@@ -68,7 +69,7 @@ public class NivelVariables : MonoBehaviour {
 			Cursor.SetCursor(null,new Vector2(180,200),CursorMode.Auto);
 		} 
 		else {
-			//Cursor.visible = false;
+			Cursor.visible = false;
 			if (cursor == "Destornillador") {
 				Cursor.SetCursor(Dest,new Vector2(16,20),CursorMode.ForceSoftware);
 			}
@@ -77,6 +78,9 @@ public class NivelVariables : MonoBehaviour {
 			}
 			if (cursor == "Martillo") {
 				Cursor.SetCursor (Mart, new Vector2 (16, 20), CursorMode.ForceSoftware);
+			}
+			if (cursor == "Flecha") {
+				Cursor.SetCursor(Flecha, new Vector2 (16, 20), CursorMode.ForceSoftware);
 			}
 
 		}
