@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class casillaCables : MonoBehaviour {
 
 	GameManager gameManager;
+	bool hasEnded = false;
 
 	public Button cable3;
 	public NivelVariables variables;
@@ -22,7 +23,10 @@ public class casillaCables : MonoBehaviour {
 	void CableCortado3 (){
 		if (variables.cursor == "Alicates") {
 			variables.cursor = "Nada";
-			gameManager.EndOfLevel (true, 0);
+			if (!hasEnded) {
+				hasEnded = true;
+				gameManager.EndOfLevel (true, 0);
+			}
 		}
 	}
 

@@ -10,6 +10,8 @@ public class NivelVariables : MonoBehaviour {
 	public Image avatar;
 
 
+	bool hasEnded = false;
+
 	public Texture2D Dest;
 	public Texture2D Alic;
 	public Texture2D Mart;
@@ -98,7 +100,11 @@ public class NivelVariables : MonoBehaviour {
 				contadorTrasero = 59;
 			} else {
 				if (SceneManager.GetActiveScene ().name != "Level 0") {
-					gameManger.EndOfLevel (false, -1);
+
+					if (!hasEnded) {
+						hasEnded = true;
+						gameManger.EndOfLevel (false, -1);
+					}
 				}
 			}
 		}

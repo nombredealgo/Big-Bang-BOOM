@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class TrollLevel : MonoBehaviour {
 
+	bool hasEnded = false;
+
 	private GameManager gameManager;
 	public NivelVariables variables;
 	public List<Button> openedBoxes;
@@ -19,7 +21,10 @@ public class TrollLevel : MonoBehaviour {
 		if (variables.cursor == "Martillo" && openedBoxes.Count == 0) {
 			Debug.Log ("entro");
 			variables.cursor = "Nada";
-			gameManager.EndOfLevel (true, 1);
+			if (!hasEnded) {
+				hasEnded = true;
+				gameManager.EndOfLevel (true, 1);
+			}
 		}
 	}
 

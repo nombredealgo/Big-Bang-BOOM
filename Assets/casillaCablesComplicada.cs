@@ -13,6 +13,8 @@ public class casillaCablesComplicada : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		verdadero.onClick.AddListener (terminado);
+		gameManager = GameObject.Find ("Game Manager").GetComponent<GameManager> ();
+
 	}
 
 	void terminado(){

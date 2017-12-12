@@ -1,16 +1,17 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Game Managment\MenuManagment.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\NivelVariables.cs">
     <Files>
-      <File FileName="Assets\Scripts\NivelVariables.cs" Line="95" Column="12" />
-      <File FileName="Assets\Scripts\Level 2\CodigoFlecha.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Level 2\TurnButton.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Level 0\Tutorial.cs" Line="38" Column="42" />
-      <File FileName="Assets\Scripts\Level 0\casillaCables.cs" Line="8" Column="26" />
-      <File FileName="Assets\casillaCablesComplicada.cs" Line="20" Column="35" />
-      <File FileName="Assets\Scripts\Game Managment\GameManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\NivelVariables.cs" Line="105" Column="23" />
+      <File FileName="Assets\Scripts\Game Managment\GameManager.cs" Line="187" Column="4" />
+      <File FileName="Assets\Scripts\Level 0\CodigoCasillaBotones.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Level 2\CodigoFlecha.cs" Line="21" Column="3" />
+      <File FileName="Assets\Scripts\Level 2\TurnButton.cs" Line="38" Column="27" />
       <File FileName="Assets\Scripts\Game Managment\MenuManagment.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Game Managment\Level.cs" Line="1" Column="1" />
+      <File FileName="Assets\casillaCablesComplicada.cs" Line="17" Column="3" />
+      <File FileName="Assets\Scripts\Level 0\CasillaBotonRJo.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Level 1\TrollLevel.cs" Line="26" Column="36" />
+      <File FileName="Assets\Scripts\Level 0\casillaCables.cs" Line="29" Column="5" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
