@@ -70,8 +70,11 @@
      <Compile Include="Assets\Scripts\Level 0\CodigoCasillaBotones.cs" />
      <Compile Include="Assets\Scripts\Level 0\Tutorial.cs" />
      <Compile Include="Assets\Scripts\Level 1\TrollLevel.cs" />
-     <Compile Include="Assets\Scripts\Level 2\CodigoFlecha.cs" />
-     <Compile Include="Assets\Scripts\Level 2\TurnButton.cs" />
+     <Compile Include="Assets\Scripts\Level 3 and 4\CodigoFlecha.cs" />
+     <Compile Include="Assets\Scripts\Level 3 and 4\Sound.cs" />
+     <Compile Include="Assets\Scripts\Level 3 and 4\Sound2.cs" />
+     <Compile Include="Assets\Scripts\Level 3 and 4\TurnButton.cs" />
+     <Compile Include="Assets\Scripts\Level 3 and 4\TurnButton2.cs" />
      <Compile Include="Assets\Scripts\NivelVariables.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\puzzleScript.cs" />

@@ -5,9 +5,11 @@ using UnityEngine.UI;
 using System.Diagnostics;
 using UnityEngine.Diagnostics;
 
-public class TurnButton : MonoBehaviour {
+public class TurnButton2 : MonoBehaviour {
 
 	GameManager gameManager;
+
+	public Sound2 sound;
 
 	// Combinación ganadora
 	public List<ArrowInBox> winnerCombination;
@@ -29,6 +31,7 @@ public class TurnButton : MonoBehaviour {
 
 	public Button redButton;
 
+
 	int[] rotationPoints = new int[4] {-90, -180, -270, 0};
 
 	Stopwatch timer;
@@ -41,7 +44,9 @@ public class TurnButton : MonoBehaviour {
 		winnerCombination = new List<ArrowInBox> ();
 
 		winnerCombination.Add(new ArrowInBox (boxes [0], -270));
-		winnerCombination.Add(new ArrowInBox (boxes [1], -90));
+		winnerCombination.Add(new ArrowInBox (boxes [1], 0));
+		winnerCombination.Add(new ArrowInBox (boxes [2], -180));
+		winnerCombination.Add(new ArrowInBox (boxes [3], -90));
 
 
 		turning = false;
@@ -64,7 +69,7 @@ public class TurnButton : MonoBehaviour {
 			if (isWinnerCombination ()) {
 				// fin de juego
 				UnityEngine.Debug.Log ("he ganao");
-				gameManager.EndOfLevel (true, 3);
+				gameManager.EndOfLevel (true, 4);
 
 			}
 		} else {
@@ -74,7 +79,7 @@ public class TurnButton : MonoBehaviour {
 	}
 
 	void Update(){
-		if (turning) {
+		if (turning && boxesWithArrow.Count > 0) {
 			TurnArrow ();
 		}
 
@@ -140,12 +145,11 @@ public class TurnButton : MonoBehaviour {
 
 
 	IEnumerator StopForSeconds(){
-		yield return new WaitForSeconds (1);
+		yield return new WaitForSeconds (2);
 
-			for (int i = 0; i < boxesWithArrow.Count; i++) {
-				NextPoint (i);
-			}
-		UnityEngine.Debug.Log (redButton.enabled);
+		for (int i = 0; i < boxesWithArrow.Count; i++) {
+			NextPoint (i);
+		}
 
 		timer.Reset ();
 	}
@@ -158,6 +162,7 @@ public class TurnButton : MonoBehaviour {
 			redButton.interactable = false;
 			buttonPressed.GetComponent<Button>().interactable = false;
 
+
 			if (timer.Elapsed.Seconds < 1) {
 				Vector3 nextRotation;
 				GameObject currentArrow;
@@ -169,7 +174,7 @@ public class TurnButton : MonoBehaviour {
 
 					nextRotation = new Vector3 (0, 0, rotationPoints [rotationIndex [i]]);
 
-					currentArrow.transform.rotation = Quaternion.Lerp (currentArrow.transform.rotation, Quaternion.Euler (nextRotation), 0.1f);
+					currentArrow.transform.rotation = Quaternion.Lerp (currentArrow.transform.rotation, Quaternion.Euler (nextRotation), 0.07f);
 				}
 
 
@@ -178,13 +183,16 @@ public class TurnButton : MonoBehaviour {
 				timer.Stop ();
 				redButton.interactable = true;
 				buttonPressed.GetComponent<Button>().interactable = true;
+				sound.StopMusic ();
+
 				StartCoroutine ("StopForSeconds");
-				
+
 			}
 		} else {
 
 			if (timer.Elapsed.Seconds == 0) {
 				timer.Start ();
+				sound.ReStartMusic ();
 
 
 			}
@@ -197,7 +205,7 @@ public class TurnButton : MonoBehaviour {
 
 		UnityEngine.Debug.Log ("entro");
 
-		if (boxesWithArrow.Count < 2) {
+		if (boxesWithArrow.Count < 4) {
 			return false;
 		}
 
@@ -205,9 +213,6 @@ public class TurnButton : MonoBehaviour {
 		ArrowInBox first = new ArrowInBox (boxes [0], rotationPoints [rotationIndex [index]]);
 
 		if (!(first.box == winnerCombination [0].box && first.rotation == winnerCombination[0].rotation)) {
-
-
-
 			return false;
 		}
 
@@ -218,18 +223,20 @@ public class TurnButton : MonoBehaviour {
 			return false;
 		}
 
+		index = boxesWithArrow.IndexOf (boxes [2].GetComponent<Button>());
+		ArrowInBox third = new ArrowInBox (boxes [2], rotationPoints [rotationIndex [index]]);
+
+		if (!(third.box == winnerCombination [2].box && third.rotation == winnerCombination[2].rotation)) {
+			return false;
+		}
+
+		index = boxesWithArrow.IndexOf (boxes [3].GetComponent<Button>());
+		ArrowInBox fourth = new ArrowInBox (boxes [3], rotationPoints [rotationIndex [index]]);
+
+		if (!(fourth.box == winnerCombination [3].box && fourth.rotation == winnerCombination[3].rotation)) {
+			return false;
+		}
+
 		return true;
-	}
-}
-
-
-public class ArrowInBox{
-
-	public int rotation;
-	public GameObject box;
-
-	public ArrowInBox(GameObject box, int rotation){
-		this.box = box;
-		this.rotation = rotation;
 	}
 }
