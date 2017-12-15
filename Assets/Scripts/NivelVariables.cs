@@ -10,7 +10,7 @@ public class NivelVariables : MonoBehaviour {
 	public Image avatar;
 
 
-	bool hasEnded = false;
+	bool hasEnded; 
 
 	public Texture2D Dest;
 	public Texture2D Alic;
@@ -30,6 +30,9 @@ public class NivelVariables : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+		hasEnded = false;
+
 		delante.text = contadorDelantero + ":";
 		detras.text = "" + contadorTrasero;
 

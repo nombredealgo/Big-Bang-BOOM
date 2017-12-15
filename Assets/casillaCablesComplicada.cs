@@ -19,6 +19,7 @@ public class casillaCablesComplicada : MonoBehaviour {
 
 	void terminado(){
 		if (variables.cursor == "Alicates") {
+			variables.cursor = "Nada";
 			gameManager.EndOfLevel (true, 2);
 		}
 	}
