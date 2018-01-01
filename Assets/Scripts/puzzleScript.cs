@@ -175,10 +175,10 @@ public class puzzleScript : MonoBehaviour {
 	void comprueba(){
 		// hacer una tupla de bottones podria ser la solucion :D
 		Debug.Log ("" + b1.image.sprite.name);
-		if ((b1.image.sprite.name == "pieza1") && (b2.image.sprite.name == "pieza2") && (b3.image.sprite.name == "pieza3")){
-			if ((b4.image.sprite.name == "pieza4") && (b5.image.sprite.name == "pieza5") && (b6.image.sprite.name == "pieza6")) {
-				if ((b7.image.sprite.name == "pieza7") && (b8.image.sprite.name == "pieza8") && (b9.image.sprite.name == "pieza9")) {
-					if ((b10.image.sprite.name == "pieza10") && (b11.image.sprite.name == "pieza11") && (b12.image.sprite.name == "pieza12")) {
+		if ((b1.image.sprite.name == "1") && (b2.image.sprite.name == "2") && (b3.image.sprite.name == "3")){
+			if ((b4.image.sprite.name == "4") && (b5.image.sprite.name == "5") && (b6.image.sprite.name == "6")) {
+				if ((b7.image.sprite.name == "7") && (b8.image.sprite.name == "8") && (b9.image.sprite.name == "9")) {
+					if ((b10.image.sprite.name == "10") && (b11.image.sprite.name == "11") && (b12.image.sprite.name == "12")) {
 						puzzleCanvas.SetActive (false);
 						casillaCerrada.SetActive (false);
 						casillaSiguiente.SetActive (true);

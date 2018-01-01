@@ -1,22 +1,24 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\casillaCablesComplicada.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\puzzleScriptxseisversion.cs">
     <Files>
-      <File FileName="Assets\Scripts\NivelVariables.cs" Line="34" Column="3" />
+      <File FileName="Assets\Scripts\NivelVariables.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Game Managment\GameManager.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Level 0\CodigoCasillaBotones.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Game Managment\MenuManagment.cs" Line="1" Column="1" />
-      <File FileName="Assets\casillaCablesComplicada.cs" Line="22" Column="30" />
+      <File FileName="Assets\casillaCablesComplicada.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Level 0\CasillaBotonRJo.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Level 1\TrollLevel.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Level 0\casillaCables.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Level 3 and 4\TurnButton2.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Level 3 and 4\TurnButton.cs" Line="193" Column="1" />
+      <File FileName="Assets\Scripts\Level 3 and 4\TurnButton.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Level 3 and 4\Sound.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Level 3 and 4\Sound2.cs" Line="1" Column="1" />
       <File FileName="Assets\playerAvatar.txt" Line="1" Column="1" />
       <File FileName="Assets\stayAtLevelMenu.txt" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Game Managment\Level.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\puzzleScriptxseisversion.cs" Line="89" Column="91" />
+      <File FileName="Assets\Scripts\puzzleScript.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
