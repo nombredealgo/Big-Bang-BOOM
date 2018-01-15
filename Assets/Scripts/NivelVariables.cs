@@ -20,7 +20,7 @@ public class NivelVariables : MonoBehaviour {
 	public Text delante;
 	public Text detras;
 	//[HideInInspector]
-	public float contadorDelantero = 10;
+	public float contadorDelantero = 2;
 	//[HideInInspector]
 	public float contadorTrasero = 59;
 	[HideInInspector]

@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour {
 	public int[] passedLevels;
 
 	public GameObject EndingCanvas;
+    public GameObject CanvasWin;
 
 	void Awake(){
 
@@ -176,14 +177,14 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void EndOfLevel(bool passed, int level){
-		GameObject canvas = Instantiate (EndingCanvas);
-		canvas.SetActive (true);
+		GameObject canvas1 = Instantiate (EndingCanvas);
+        GameObject canvas2 = Instantiate(CanvasWin);
 
 		if (passed) {
-			canvas.GetComponentInChildren<Text> ().text = "You win!";
+            canvas2.SetActive(true);
 			SetPassedLevels(level);
 		} else {
-			canvas.GetComponentInChildren<Text> ().text = "You lose!";
+            canvas1.SetActive(true);
 		}
 			
 		StartCoroutine ("LitlePause");
