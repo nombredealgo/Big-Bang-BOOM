@@ -68,7 +68,6 @@ public class TurnButton2 : MonoBehaviour {
 			buttonPressed.SetActive (false);
 			if (isWinnerCombination ()) {
 				// fin de juego
-				UnityEngine.Debug.Log ("he ganao");
 				gameManager.EndOfLevel (true, 4);
 
 			}
@@ -97,7 +96,6 @@ public class TurnButton2 : MonoBehaviour {
 	public void AddArrow(Button button){
 		if (variables.cursor == "Flecha" && !turning) {
 
-
 			if (!boxesWithArrow.Contains (button)) {
 				boxesWithArrow.Add (button);
 
@@ -106,15 +104,14 @@ public class TurnButton2 : MonoBehaviour {
 
 				newArrow.transform.localPosition = new Vector3 (0, 0, 0);
 
-				Quaternion firstRotation = Quaternion.Euler (new Vector3 (0, 0, 0));
-				newArrow.transform.localRotation = firstRotation;
-
+//				Quaternion firstRotation = Quaternion.Euler (new Vector3 (0, 0, 0));
+//				newArrow.transform.localRotation = firstRotation;
 
 				newArrow.GetComponent<CodigoFlecha> ().variables = GameObject.Find ("Bomb").GetComponent<NivelVariables> ();
 				newArrow.GetComponent<CodigoFlecha> ().enabled = false;
 				newArrow.SetActive (true);
 
-				rotationIndex.Add (0);
+				rotationIndex.Add (-1);
 
 				variables.cursor = "Nada";
 
@@ -171,6 +168,14 @@ public class TurnButton2 : MonoBehaviour {
 
 
 					currentArrow = boxesWithArrow [i].transform.GetChild (0).gameObject;
+
+//					UnityEngine.Debug.Log (i);
+//					UnityEngine.Debug.Log(rotationPoints [rotationIndex [i]]);
+
+					UnityEngine.Debug.Log (rotationIndex.Count);
+					if (rotationIndex [i] == -1) {
+						rotationIndex [i] = 0;
+					}
 
 					nextRotation = new Vector3 (0, 0, rotationPoints [rotationIndex [i]]);
 
