@@ -1,0 +1,4 @@
+# Big-Bang-BOOM
+
+//Unzip and click Big-Bang-BOOM.exe to play
+//MAKE SURE YOU PLAY IN 1024 X 786 RESOLUTION OR YOU WON'T SEE ALL THE SCREEN
